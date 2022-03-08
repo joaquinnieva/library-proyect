@@ -1,113 +1,131 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import { MenuIcon, MoonIcon, SunIcon, TranslateIcon, XIcon } from '@heroicons/react/outline';
+import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Fragment } from 'react';
-
-const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'Info', href: '/info', current: false },
-  { name: 'Login', href: '/login', current: false },
-  { name: 'Register', href: '/register', current: false },
-];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
+import { Fragment, useEffect, useState } from 'react';
+import { navigation } from '../utils/navigation';
 
 export default function Example() {
+  const [session, setSession] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { systemTheme, theme, setTheme } = useTheme();
+
+  const renderTheneChanger = () => {
+    if (!mounted) return null;
+    const currentTheme = theme === 'system' ? systemTheme : theme;
+    if (currentTheme === 'dark') {
+      return (
+        <button
+          onClick={() => setTheme('light')}
+          className="flex items-center gap-1 px-4 py-2 text-sm font-normal text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-100 hover:text-neutral-800"
+        >
+          Theme
+          <SunIcon className="w-5 h-5" />
+        </button>
+      );
+    } else {
+      return (
+        <button
+          onClick={() => setTheme('dark')}
+          className="flex items-center gap-1 px-4 py-2 text-sm font-normal text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-100 hover:text-neutral-800"
+        >
+          Theme
+          <MoonIcon className="w-5 h-5" />
+        </button>
+      );
+    }
+  };
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
-    <Disclosure as="nav" className="bg-neutral-800">
+    <Disclosure as="nav" className="transition ease-in-out bg-neutral-100 dark:bg-neutral-800">
       {({ open }) => (
         <>
           <div className="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-neutral-400 hover:text-white hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   {open ? (
-                    <XIcon className="block w-6 h-6" aria-hidden="true" />
+                    <XIcon className="block w-6 h-6 transition ease-in delay-100" aria-hidden="true" />
                   ) : (
-                    <MenuIcon className="block w-6 h-6" aria-hidden="true" />
+                    <MenuIcon className="block w-6 h-6 transition ease-in delay-100" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
               <div className="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
-                <div className="hidden sm:block sm:ml-6">
-                  <div className="flex space-x-4">
-                    {navigation.map((item) => (
-                      <Link key={item.name} href={item.href}>
-                        <a
-                          className={classNames(
-                            item.current
-                              ? 'bg-neutral-900 text-white'
-                              : 'text-gray-300 hover:bg-neutral-700 hover:text-white',
-                            'px-3 py-2 rounded-md text-sm font-medium'
-                          )}
-                          aria-current={item.current ? 'page' : undefined}
-                        >
-                          {item.name}
-                        </a>
-                      </Link>
-                    ))}
-                  </div>
+                <div className="hidden space-x-4 sm:flex">
+                  {navigation.map((item) => (
+                    <Link key={item.name} href={item.href}>
+                      <a className="px-3 py-2 font-normal transition delay-75 dark:text-neutral-400 text-neutral-500 text-md hover:text-neutral-800 ease dark:hover:text-neutral-100">
+                        {item.name}
+                      </a>
+                    </Link>
+                  ))}
+                  {renderTheneChanger()}
+                  <button className="flex items-center gap-1 px-4 py-2 text-sm font-normal text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-100 hover:text-neutral-800">
+                    Translate
+                    <TranslateIcon className="w-5 h-5"></TranslateIcon>
+                  </button>
                 </div>
               </div>
+
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <Menu as="div" className="relative ml-3">
-                  <div>
-                    <Menu.Button className="flex text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                      <div className="w-8 h-8 overflow-hidden rounded-full">
-                        <Image
-                          layout="fill"
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                          alt=""
-                        />
-                      </div>
-                    </Menu.Button>
-                  </div>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="absolute right-0 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
+                {session ? (
+                  <Menu as="div" className="relative ml-3">
+                    <div>
+                      <Menu.Button className="flex text-sm rounded-full bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-800 focus:ring-white">
+                        <div className="w-8 h-8 overflow-hidden rounded-full">
+                          <Image
+                            className="relative w-8 h-8 overflow-hidden rounded-full"
+                            width={32}
+                            height={32}
+                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                            alt=""
+                          />
+                        </div>
+                      </Menu.Button>
+                    </div>
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                    >
+                      <Menu.Items className="absolute right-0 z-10 flex flex-col w-48 py-1 mt-2 origin-top-right bg-white border rounded-md border-neutral-400 ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-800 dark:text-neutral-200 dark:border-neutral-600">
+                        <Menu.Item>
+                          <a href="#" className="block px-4 py-2 text-sm text-neutral-700 dark:text-neutral-200">
                             Your Profile
                           </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Settings
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
+                        </Menu.Item>
+
+                        <Menu.Item>
+                          <a href="#" className="block px-4 py-2 text-sm text-neutral-700 dark:text-neutral-200">
                             Sign out
                           </a>
-                        )}
-                      </Menu.Item>
-                    </Menu.Items>
-                  </Transition>
-                </Menu>
+                        </Menu.Item>
+                      </Menu.Items>
+                    </Transition>
+                  </Menu>
+                ) : (
+                  <div>
+                    <Link href="/login">
+                      <a className="px-6 py-2 mr-4 font-normal transition ease-in-out border rounded text-neutral-600 focus:outline-none hover:border-neutral-800 hover:text-neutral-800 border-b-neutral-800 dark:text-neutral-200 dark:border-neutral-800 dark:border-b-neutral-100 dark:hover:border-neutral-100 dark:hover:text-neutral-100">
+                        Login
+                      </a>
+                    </Link>
+                    <Link href="/register">
+                      <a className="hidden px-6 py-2 font-normal text-white transition delay-75 border rounded sm:inline bg-neutral-800 focus:outline-none hover:bg-neutral-100 hover:text-neutral-800 hover:border-neutral-800 dark:bg-neutral-100 dark:text-neutral-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-100 dark:hover:border-neutral-100">
+                        Register
+                      </a>
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -119,15 +137,18 @@ export default function Example() {
                   key={item.name}
                   as="a"
                   href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
+                  className="block px-3 py-2 text-base font-normal text-center border-2 rounded-md text-neutral-700 border-neutral-300 dark:border-neutral-700 dark:text-neutral-100"
                 >
                   {item.name}
                 </Disclosure.Button>
               ))}
+              <div className="flex justify-around border-2 rounded-md border-neutral-300 dark:border-neutral-700 ">
+                {renderTheneChanger()}
+                <button className="flex items-center gap-1 px-4 py-2 text-sm font-normal text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-100 hover:text-neutral-800">
+                  Translate
+                  <TranslateIcon className="w-5 h-5"></TranslateIcon>
+                </button>
+              </div>
             </div>
           </Disclosure.Panel>
         </>

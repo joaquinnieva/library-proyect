@@ -3,25 +3,28 @@ import React from 'react';
 
 function Post() {
   return (
-    <div className="flex max-w-md mx-4 my-56 bg-white rounded-lg shadow-lg md:mx-auto md:max-w-2xl ">
-      <div className="flex items-start px-4 py-6">
-        <Image
-          className="object-cover w-12 h-12 mr-4 rounded-full shadow"
-          src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-          alt="avatar"
-          layout="fill"
-        />
-        <div className="">
+    <div className="mx-4 my-10 bg-white border border-white rounded-lg max-w-auto dark:border-2 border-b-neutral-800 dark:border-b-neutral-600 dark:border-neutral-800 dark:bg-neutral-800 md:mx-auto md:max-w-2xl">
+      <div className="flex px-4 py-6 w-100">
+        <div className="object-cover w-12 h-12 mr-4 rounded-full shadow">
+          <Image
+            className="object-cover w-12 h-12 mr-4 rounded-full shadow"
+            src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+            alt="avatar"
+            width={48}
+            height={48}
+          />
+        </div>
+        <div className="flex flex-col w-full">
           <div className="flex items-center justify-between">
-            <h2 className="-mt-1 text-lg font-semibold text-gray-900">Brad Adams </h2>
-            <small className="text-sm text-gray-700">22h ago</small>
+            <h2 className="-mt-1 text-lg font-semibold text-gray-900 dark:text-neutral-100">Brad Adams </h2>
+            <small className="text-sm text-gray-700 dark:text-neutral-200">22h ago</small>
           </div>
-          <p className="text-gray-700">Joined 12 SEP 2012. </p>
-          <p className="mt-3 text-sm text-gray-700">
+          <p className="text-gray-700 dark:text-neutral-400">Joined 12 SEP 2012. </p>
+          <p className="mt-3 text-sm text-gray-700 dark:text-neutral-400">
             Lorem ipsum, dolor sit amet conse. Saepe optio minus rem dolor sit amet!
           </p>
           <div className="flex items-center mt-4">
-            <div className="flex mr-3 text-sm text-gray-700">
+            <div className="flex mr-3 text-sm text-gray-700 dark:text-neutral-400">
               <svg fill="none" viewBox="0 0 24 24" className="w-4 h-4 mr-1" stroke="currentColor">
                 <path
                   strokeLinecap="round"
@@ -32,7 +35,7 @@ function Post() {
               </svg>
               <span>12</span>
             </div>
-            <div className="flex mr-8 text-sm text-gray-700">
+            <div className="flex mr-8 text-sm text-gray-700 dark:text-neutral-400">
               <svg fill="none" viewBox="0 0 24 24" className="w-4 h-4 mr-1" stroke="currentColor">
                 <path
                   strokeLinecap="round"
@@ -43,7 +46,7 @@ function Post() {
               </svg>
               <span>8</span>
             </div>
-            <div className="flex mr-4 text-sm text-gray-700">
+            <div className="flex mr-4 text-sm text-gray-700 dark:text-neutral-400">
               <svg fill="none" viewBox="0 0 24 24" className="w-4 h-4 mr-1" stroke="currentColor">
                 <path
                   strokeLinecap="round"
