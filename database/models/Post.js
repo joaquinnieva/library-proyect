@@ -4,18 +4,24 @@ const postSchema = new Schema(
   {
     title: {
       type: String,
-      required: true,
-      unique: true,
-      trim: true,
+      required: false,
     },
     description: {
       type: String,
-      required: true,
+      required: false,
     },
   },
   {
     timestamps: true,
   }
 );
+
+postSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id;
+    delete returnedObject._id;
+    delete returnedObject.__v;
+  },
+});
 
 export default mongoose.models.Post || mongoose.model('Post', postSchema);
