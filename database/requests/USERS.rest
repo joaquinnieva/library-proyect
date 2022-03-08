@@ -1,0 +1,25 @@
+GET http://localhost:3000/api/user 
+
+### by id
+GET http://localhost:3000/api/user/6227b1fa1be25b22cc13ca52
+
+###
+POST http://localhost:3000/api/user 
+content-type: application/json
+
+{
+  "title": "2sample title",
+  "description": "2sample description"
+}
+###
+PUT http://localhost:3000/api/user/6227b8366af4a191276a1525
+content-type: application/json
+
+{
+  "title": "sample title update",
+  "description": "sample description update"
+}
+
+
+###
+DELETE http://localhost:3000/api/user/6227b90c6af4a191276a1530
