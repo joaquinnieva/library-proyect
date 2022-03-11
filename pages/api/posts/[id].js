@@ -1,8 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import Post from '../../../database/models/Post.js';
-import { dbConnect } from '../../../database/mongoose';
-
-dbConnect();
+import { pool } from '../../../database/database';
 
 export default async function (req, res) {
   const {
@@ -14,33 +11,34 @@ export default async function (req, res) {
   switch (method) {
     case 'GET':
       try {
-        const post = await Post.findById(id);
-        if (!post) return res.status(484).json({ msg: 'Post not found' });
-        return res.status(200).json(post);
+        const post = await pool.query('SELECT * FROM posts WHERE idpost = ?', [id]);
+        if (!post) return res.status(484).json({ message: 'Post not found' });
+        return res.status(200).json(post[0]);
       } catch (error) {
-        return res.status(400).json({ msg: error.msg });
+        return res.status(400).json({ message: error.msg });
       }
-
     case 'PUT':
       try {
-        const { title } = body;
-        const postToUpdate = await Post.findByIdAndUpdate(id, body);
-        if (!postToUpdate) return res.status(484).json({ msg: 'Post not found' });
-        return res.status(201).json({ msg: 'Post updated', title });
+        const { description, file } = body;
+        const postToUpdate = await pool.query('UPDATE posts SET description = ?, file = ? WHERE idpost = ?', [
+          description,
+          file,
+          id,
+        ]);
+        return res.status(200).json({ message: 'Post updated' });
       } catch (error) {
-        return res.status(400).json({ msg: error.msg });
+        return res.status(400).json({ message: error.msg });
       }
-
     case 'DELETE':
       try {
-        const postToDelete = await Post.findByIdAndRemove(id);
-        const { title } = postToDelete;
-        return res.status(200).json({ msg: 'Post deleted', title });
+        const postToDelete = await pool.query('DELETE FROM posts WHERE idpost = ?', [id]);
+        if (!postToDelete) return null;
+        return res.status(200).json({ message: 'Post deleted' });
       } catch (error) {
-        return res.status(400).json({ msg: error.msg });
+        return res.status(400).json({ message: error.msg });
       }
 
     default:
-      return res.status(400).json({ msg: 'This method is not supported' });
+      return res.status(400).json({ message: 'This method is not supported' });
   }
 }

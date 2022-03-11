@@ -1,7 +1,7 @@
-export const INFO_TITLE1 = 'Before they sold out';
-export const INFO_TITLE2 = 'readymade gluten';
+export const INFO_TITLE1 = 'Lorem ipsum dolor';
+export const INFO_TITLE2 = 'sit amet consectetur';
 export const INFO_SUBTITLE =
-  'Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.';
+  'Lorem ipsum dolor sit amet consectetur adipiscing elit sociis nostra sagittis, etiam aliquet dis inceptos dapibus cras ridiculus sociosqu metus, facilisis penatibus diam bibendum non viverra nascetur feugiat vel. Felis justo lacus morbi lobortis fames auctor blandit';
 export const INFO_BUTTON_PRY = 'View more';
 export const INFO_BUTTON_SEC = 'Register';
 export const LOGIN_TITLE = 'Login';
