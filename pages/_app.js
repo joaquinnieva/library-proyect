@@ -1,7 +1,24 @@
+import i18next from 'i18next';
 import { ThemeProvider } from 'next-themes';
 import Head from 'next/head';
+import { I18nextProvider } from 'react-i18next';
 import Navbar from '../components/Navbar';
 import '../styles/globals.css';
+import en from '../utils/translations/en/global.json';
+import es from '../utils/translations/es/global.json';
+
+i18next.init({
+  interpolation: { escapeValue: false },
+  lng: 'en',
+  resources: {
+    en: {
+      global: en,
+    },
+    es: {
+      global: es,
+    },
+  },
+});
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -12,8 +29,10 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <ThemeProvider enableSystem={true} attribute="class">
-        <Navbar />
-        <Component {...pageProps} />
+        <I18nextProvider i18n={i18next}>
+          <Navbar />
+          <Component {...pageProps} />
+        </I18nextProvider>
       </ThemeProvider>
     </>
   );

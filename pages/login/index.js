@@ -1,8 +1,9 @@
 import { EyeIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
-import { LOGIN_BUTON, LOGIN_LINK, LOGIN_QUESTION, LOGIN_SUBTITLE, LOGIN_TITLE } from '../../utils/constants';
+import { useTranslation } from 'react-i18next';
 
 function Login() {
+  const [t] = useTranslation('global');
   return (
     <>
       <header>
@@ -10,8 +11,8 @@ function Login() {
       </header>
       <div className="relative flex flex-col items-center justify-center h-screen space-y-10">
         <div className="w-auto p-6 rounded shadow-none md:shadow-lg sm:w-96">
-          <h1 className="text-3xl font-bold leading-normal">{LOGIN_TITLE}</h1>
-          <p className="text-sm leading-normal">{LOGIN_SUBTITLE}</p>
+          <h1 className="text-3xl font-bold leading-normal">{t('LOGIN_TITLE')}</h1>
+          <p className="text-sm leading-normal">{t('LOGIN_SUBTITLE')}</p>
           <form className="mt-5 space-y-5">
             <div className="relative mb-4">
               <input
@@ -36,18 +37,18 @@ function Login() {
             </div>
 
             <button className="w-full py-3 font-medium text-center text-white transition ease-in-out border rounded bg-neutral-800 hover:bg-neutral-100 hover:text-neutral-800 hover:border-neutral-800">
-              {LOGIN_BUTON}
+              {t('LOGIN_BUTON')}
             </button>
           </form>
         </div>
         <p>
-          {LOGIN_QUESTION}
+          {t('LOGIN_QUESTION')}
           <Link href="/register">
             <a
               className="p-2 font-bold rounded-full text-neutral-700 hover:underline dark:text-neutral-300 dark:hover:text-neutral-100"
               href="#"
             >
-              {LOGIN_LINK}
+              {t('LOGIN_LINK')}
             </a>
           </Link>
         </p>

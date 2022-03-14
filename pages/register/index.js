@@ -1,14 +1,9 @@
 import { EyeIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
-import {
-  REGISTER_BUTTON,
-  REGISTER_LINK,
-  REGISTER_QUESTION,
-  REGISTER_SUBTITLE,
-  REGISTER_TITLE
-} from '../../utils/constants';
+import { useTranslation } from 'react-i18next';
 
 function Register() {
+  const [t] = useTranslation('global');
   return (
     <>
       <header>
@@ -16,8 +11,8 @@ function Register() {
       </header>
       <div className="relative flex flex-col items-center justify-center h-screen space-y-10">
         <div className="w-auto p-6 rounded shadow-none md:shadow-lg sm:w-96">
-          <h1 className="text-3xl font-bold leading-normal">{REGISTER_TITLE}</h1>
-          <p className="text-sm leading-normal">{REGISTER_SUBTITLE}</p>
+          <h1 className="text-3xl font-bold leading-normal">{t('REGISTER_TITLE')}</h1>
+          <p className="text-sm leading-normal">{t('REGISTER_SUBTITLE')}</p>
           <form className="mt-5 space-y-5">
             <div className="relative mb-4">
               <input
@@ -42,15 +37,15 @@ function Register() {
             </div>
 
             <button className="w-full py-3 font-medium text-center text-white transition ease-in-out border rounded bg-neutral-800 hover:bg-neutral-100 hover:text-neutral-800 hover:border-neutral-800">
-              {REGISTER_BUTTON}
+              {t('REGISTER_BUTTON')}
             </button>
           </form>
         </div>
         <p>
-          {REGISTER_QUESTION}
+          {t('REGISTER_QUESTION')}
           <Link href="/login">
             <a className="p-2 font-bold rounded-full text-neutral-700 hover:underline dark:text-neutral-300 dark:hover:text-neutral-100">
-              {REGISTER_LINK}
+              {t('REGISTER_LINK')}
             </a>
           </Link>
         </p>

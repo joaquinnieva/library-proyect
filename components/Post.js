@@ -1,3 +1,4 @@
+import { LinkPreview } from '@dhaiwat10/react-link-preview';
 import Image from 'next/image';
 import React from 'react';
 
@@ -19,10 +20,17 @@ function Post() {
             <h2 className="-mt-1 text-lg font-semibold text-gray-900 dark:text-neutral-100">Brad Adams </h2>
             <small className="text-sm text-gray-700 dark:text-neutral-200">22h ago</small>
           </div>
-          <p className="text-gray-700 dark:text-neutral-400">Joined 12 SEP 2012. </p>
-          <p className="mt-3 text-sm text-gray-700 dark:text-neutral-400">
+
+          <p className="mt-3 text-gray-700 text-md dark:text-neutral-400">
             Lorem ipsum, dolor sit amet conse. Saepe optio minus rem dolor sit amet!
           </p>
+          <LinkPreview
+            url="https://drive.google.com/file/d/1j4_FiK_yYVc_yqxoq0p5obUzhXRjsAkL/view"
+            imageHeight="0vh"
+            backgroundColor="#a3a3a3"
+            borderColor="#a3a3a3"
+            width="100%"
+          />
           <div className="flex items-center mt-4">
             <div className="flex mr-3 text-sm text-gray-700 dark:text-neutral-400">
               <svg fill="none" viewBox="0 0 24 24" className="w-4 h-4 mr-1" stroke="currentColor">
