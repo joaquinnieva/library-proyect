@@ -1,8 +1,9 @@
 {
   "NAV_LINK_INFO": "Info",
   "NAV_LINK_HOME": "Inicio",
-  "NAV_BUTTON_LOGIN": "Iniciar sesión",
   "NAV_BUTTON_REGISTER": "Registrarse",
+  "NAV_BUTTON_SIGNOUT": "Cerrar sesión",
+  "NAV_BUTTON_PROFILE": "Mi perfil",
   "NAV_TRANSLATE": "Traducción",
   "NAV_SPANISH": "Español",
   "NAV_ENGLISH": "Ingles",
