@@ -11,10 +11,11 @@ export default async function handler(req, res) {
       }
     case 'POST':
       try {
-        const { description, file } = req.body;
+        const { description, file, idUser } = req.body;
         const savedPost = await pool.query('INSERT INTO post SET ?', {
           description,
           file,
+          idUser,
         });
         return res.status(201).json({
           message: 'Post saved',
@@ -22,7 +23,7 @@ export default async function handler(req, res) {
           file,
         });
       } catch (error) {
-        return res.status(400).json({ message: error.msg });
+        return res.status(400).json({ error });
       }
 
     default:

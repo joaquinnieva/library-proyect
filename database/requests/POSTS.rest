@@ -8,14 +8,15 @@ POST http://localhost:3000/api/posts
 content-type: application/json
 
 {
-  "description":"1some description",
-  "file":"1some file"
+  "description":"testing w bastos",
+  "file":"https://drive.google.com/file/d/1j2prGlZnXDTsWDgkAwlJPkPU2QV0H145/view?usp=sharing",
+  "idUser": 1
 }
 ###
-PUT http://localhost:3000/api/posts/3
+PUT http://localhost:3000/api/posts/1
 content-type: application/json
 
 {
-  "description":"new updating description1",
-  "file":"new updating file1"
+  "description":"description of post 1... testing",
+  "file":"https://drive.google.com/file/d/1j4_FiK_yYVc_yqxoq0p5obUzhXRjsAkL/view"
 }
