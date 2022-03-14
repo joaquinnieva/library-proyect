@@ -11,14 +11,14 @@ export default async function handler(req, res) {
       }
     case 'POST':
       try {
-        const { username, name } = req.body;
+        const { userMail, name } = req.body;
         const savedUser = await pool.query('INSERT INTO user SET ?', {
-          username,
+          userMail,
           name,
         });
         return res.status(201).json({
           message: 'User created',
-          username,
+          userMail,
         });
       } catch (error) {
         return res.status(400).json({ message: error.msg });

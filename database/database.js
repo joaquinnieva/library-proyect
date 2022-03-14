@@ -1,11 +1,11 @@
 import { createPool } from 'mysql2/promise';
 
 const pool = createPool({
-  host: 'localhost',
-  user: 'root',
+  host: 'mysql-librery-app.alwaysdata.net',
+  user: '260826',
   password: 'talleres2001',
   port: 3306,
-  database: 'librerydb',
+  database: 'librery-app_database',
 });
 
 export { pool };

@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   switch (req.method) {
     case 'GET':
       try {
-        const posts = await pool.query('SELECT * FROM posts');
+        const posts = await pool.query('SELECT * FROM post');
         return res.status(200).json(posts[0]);
       } catch (error) {
         return res.status(400).json({ message: error.msg });
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     case 'POST':
       try {
         const { description, file } = req.body;
-        const savedPost = await pool.query('INSERT INTO posts SET ?', {
+        const savedPost = await pool.query('INSERT INTO post SET ?', {
           description,
           file,
         });

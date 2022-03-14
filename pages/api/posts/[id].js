@@ -11,7 +11,7 @@ export default async function (req, res) {
   switch (method) {
     case 'GET':
       try {
-        const post = await pool.query('SELECT * FROM posts WHERE idpost = ?', [id]);
+        const post = await pool.query('SELECT * FROM post WHERE idPost = ?', [id]);
         if (!post) return res.status(484).json({ message: 'Post not found' });
         return res.status(200).json(post[0]);
       } catch (error) {
@@ -20,7 +20,7 @@ export default async function (req, res) {
     case 'PUT':
       try {
         const { description, file } = body;
-        const postToUpdate = await pool.query('UPDATE posts SET description = ?, file = ? WHERE idpost = ?', [
+        const postToUpdate = await pool.query('UPDATE post SET description = ?, file = ? WHERE idPost = ?', [
           description,
           file,
           id,
@@ -31,7 +31,7 @@ export default async function (req, res) {
       }
     case 'DELETE':
       try {
-        const postToDelete = await pool.query('DELETE FROM posts WHERE idpost = ?', [id]);
+        const postToDelete = await pool.query('DELETE FROM post WHERE idPost = ?', [id]);
         if (!postToDelete) return null;
         return res.status(200).json({ message: 'Post deleted' });
       } catch (error) {

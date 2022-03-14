@@ -11,7 +11,7 @@ export default async function (req, res) {
   switch (method) {
     case 'GET':
       try {
-        const user = await pool.query('SELECT * FROM user WHERE iduser = ?', [id]);
+        const user = await pool.query('SELECT * FROM user WHERE idUser = ?', [id]);
         if (!user) return res.status(484).json({ message: 'User not found' });
         return res.status(200).json(user[0]);
       } catch (error) {
@@ -19,9 +19,9 @@ export default async function (req, res) {
       }
     case 'PUT':
       try {
-        const { username, name } = body;
-        const userToUpdate = await pool.query('UPDATE user SET username = ?, name = ? WHERE iduser = ?', [
-          username,
+        const { userMail, name } = body;
+        const userToUpdate = await pool.query('UPDATE user SET userMail = ?, name = ? WHERE idUser = ?', [
+          userMail,
           name,
           id,
         ]);
