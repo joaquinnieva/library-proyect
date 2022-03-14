@@ -1,5 +1,6 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { MenuIcon, MoonIcon, SunIcon, TranslateIcon, XIcon } from '@heroicons/react/outline';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,10 +8,11 @@ import { Fragment, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function Example() {
-  const [session, setSession] = useState(false);
+  const { data: session, loading } = useSession();
   const [mounted, setMounted] = useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
   const [t, i18n] = useTranslation('global');
+  console.log(session);
 
   const renderTheneChanger = () => {
     if (!mounted) return null;
@@ -118,7 +120,7 @@ export default function Example() {
                             className="relative w-8 h-8 overflow-hidden rounded-full"
                             width={32}
                             height={32}
-                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                            src={session?.user.image}
                             alt=""
                           />
                         </div>
@@ -135,31 +137,33 @@ export default function Example() {
                     >
                       <Menu.Items className="absolute right-0 z-10 flex flex-col w-48 py-1 mt-2 origin-top-right bg-white border rounded-md border-neutral-400 ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-800 dark:text-neutral-200 dark:border-neutral-600">
                         <Menu.Item>
-                          <a href="#" className="block px-4 py-2 text-sm text-neutral-700 dark:text-neutral-200">
-                            Your Profile
+                          <a
+                            href="#"
+                            className="block px-4 py-2 text-sm text-left text-neutral-700 dark:text-neutral-200"
+                          >
+                            {t('NAV_BUTTON_PROFILE')}
                           </a>
                         </Menu.Item>
 
                         <Menu.Item>
-                          <a href="#" className="block px-4 py-2 text-sm text-neutral-700 dark:text-neutral-200">
-                            Sign out
-                          </a>
+                          <button
+                            onClick={signOut}
+                            className="block px-4 py-2 text-sm text-left text-neutral-700 dark:text-neutral-200"
+                          >
+                            {t('NAV_BUTTON_SIGNOUT')}
+                          </button>
                         </Menu.Item>
                       </Menu.Items>
                     </Transition>
                   </Menu>
                 ) : (
                   <div>
-                    <Link href="/login">
-                      <a className="px-6 py-2 mr-4 font-normal transition ease-in-out border rounded text-neutral-600 focus:outline-none hover:border-neutral-800 hover:text-neutral-800 border-b-neutral-800 dark:text-neutral-200 dark:border-neutral-800 dark:border-b-neutral-100 dark:hover:border-neutral-100 dark:hover:text-neutral-100 whitespace-nowrap">
-                        {t('NAV_BUTTON_LOGIN')}
-                      </a>
-                    </Link>
-                    <Link href="/register">
-                      <a className="hidden px-6 py-2 font-normal text-white transition delay-75 border rounded sm:inline bg-neutral-800 focus:outline-none hover:bg-neutral-100 hover:text-neutral-800 hover:border-neutral-800 dark:bg-neutral-100 dark:text-neutral-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-100 dark:hover:border-neutral-100">
-                        {t('NAV_BUTTON_REGISTER')}
-                      </a>
-                    </Link>
+                    <button
+                      onClick={signIn}
+                      className="hidden px-6 py-2 font-normal text-white transition delay-75 border rounded sm:inline bg-neutral-800 focus:outline-none hover:bg-neutral-100 hover:text-neutral-800 hover:border-neutral-800 dark:bg-neutral-100 dark:text-neutral-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-100 dark:hover:border-neutral-100"
+                    >
+                      {t('NAV_BUTTON_REGISTER')}
+                    </button>
                   </div>
                 )}
               </div>
