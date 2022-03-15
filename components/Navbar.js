@@ -6,14 +6,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import Loader from '../components/Loader';
+import { postUser } from '../utils/apiService';
 
 export default function Example() {
-  const { data: session, loading } = useSession();
+  const { data: session, status } = useSession();
   const [mounted, setMounted] = useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
   const [t, i18n] = useTranslation('global');
-  console.log(session);
-
+  console.log(session, status);
   const renderTheneChanger = () => {
     if (!mounted) return null;
     const currentTheme = theme === 'system' ? systemTheme : theme;
@@ -41,6 +42,9 @@ export default function Example() {
   };
 
   useEffect(() => {
+    if (status === 'authenticated') {
+      postUser(session.user);
+    }
     setMounted(true);
   }, []);
   return (
@@ -111,7 +115,7 @@ export default function Example() {
               </div>
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                {session ? (
+                {status === 'authenticated' && (
                   <Menu as="div" className="relative ml-3">
                     <div>
                       <Menu.Button className="flex text-sm rounded-full bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-800 focus:ring-white">
@@ -121,7 +125,7 @@ export default function Example() {
                             width={32}
                             height={32}
                             src={session?.user.image}
-                            alt=""
+                            alt={session?.user.name}
                           />
                         </div>
                       </Menu.Button>
@@ -156,7 +160,8 @@ export default function Example() {
                       </Menu.Items>
                     </Transition>
                   </Menu>
-                ) : (
+                )}
+                {status === 'unauthenticated' && (
                   <div>
                     <button
                       onClick={signIn}
@@ -166,6 +171,7 @@ export default function Example() {
                     </button>
                   </div>
                 )}
+                {status === 'loading' && <Loader />}
               </div>
             </div>
           </div>
