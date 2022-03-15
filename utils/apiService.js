@@ -8,19 +8,27 @@ export async function getPosts() {
     return error;
   }
 }
-export async function postUser(values) {
+export async function postPosts() {
   try {
-    console.log(values);
-    // const result = await axios.post('http://localhost:3000/api/user');
-    // return result;
+    const result = await axios.get('http://localhost:3000/api/posts');
+    return result;
   } catch (error) {
     return error;
   }
 }
 export async function getUser(params) {
+  // try {
+  //   const result = await axios.get('http://localhost:3000/api/user');
+  //   return result;
+  // } catch (error) {
+  //   return error;
+  // }
+}
+export async function postUser(values) {
   try {
-    const result = await axios.get('http://localhost:3000/api/user');
-    return result;
+    console.log(values);
+    const result = await axios.post('http://localhost:3000/api/user');
+    console.log(result);
   } catch (error) {
     return error;
   }
