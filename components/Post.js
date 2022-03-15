@@ -20,9 +20,14 @@ function Post({ data }) {
             <h2 className="-mt-1 text-lg font-semibold text-gray-900 dark:text-neutral-100">Brad Adams </h2>
             <small className="text-sm text-gray-700 dark:text-neutral-200">22h ago</small>
           </div>
-
           <p className="mt-3 text-gray-700 text-md dark:text-neutral-400">{data.description}</p>
-          <LinkPreview url={data.file} imageHeight="0vh" backgroundColor="#a3a3a3" borderColor="#a3a3a3" width="100%" />
+          <LinkPreview
+            url={data.file}
+            imageHeight="20vh"
+            backgroundColor="#a3a3a3"
+            borderColor="#a3a3a3"
+            width="100%"
+          />
           <div className="flex items-center mt-4">
             <div className="flex mr-3 text-sm text-gray-700 dark:text-neutral-400">
               <svg fill="none" viewBox="0 0 24 24" className="w-4 h-4 mr-1" stroke="currentColor">
