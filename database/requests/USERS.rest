@@ -1,6 +1,6 @@
 GET http://localhost:3000/api/user
 ### by id ↓
-GET http://localhost:3000/api/user/3
+GET http://localhost:3000/api/user/34
 ###
 DELETE http://localhost:3000/api/user/1
 ###
@@ -8,8 +8,8 @@ POST http://localhost:3000/api/user
 content-type: application/json
 
 {
-  "username":"test",
-  "name":"test"
+  "userMail":"testtt",
+  "name":"testtt"
 }
 ###
 PUT http://localhost:3000/api/user/1
