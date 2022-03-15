@@ -1,6 +1,6 @@
 GET http://localhost:3000/api/user
 ### by id ↓
-GET http://localhost:3000/api/user/34
+GET http://localhost:3000/api/user/1
 ###
 DELETE http://localhost:3000/api/user/1
 ###
@@ -9,12 +9,15 @@ content-type: application/json
 
 {
   "userMail":"testtt",
-  "name":"testtt"
+  "name":"testtt",
+  "image": "https://lh3.googleusercontent.com/a-/AOh14Ghk5BgRm2DlTVj13vbSkvLbmnCFBCmRvkjqaUv8Mw=s96-c"
 }
 ###
 PUT http://localhost:3000/api/user/1
 content-type: application/json
 
 {
-  
+  "userMail":"asd@asd",
+  "name":"asd",
+  "image": "https://lh3.googleusercontent.com/a-/AOh14Ghk5BgRm2DlTVj13vbSkvLbmnCFBCmRvkjqaUv8Mw=s96-c"
 }

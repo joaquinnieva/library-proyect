@@ -16,17 +16,17 @@ export async function postPosts() {
     return error;
   }
 }
-export async function getUser(params) {
-  // try {
-  //   const result = await axios.get('http://localhost:3000/api/user');
-  //   return result;
-  // } catch (error) {
-  //   return error;
-  // }
+export async function getUser(id) {
+  try {
+    const { data } = await axios.get('http://localhost:3000/api/user/' + id);
+    return data[0];
+  } catch (error) {
+    return error;
+  }
 }
 export async function postUser(values) {
   try {
-    console.log(values);
+    // console.log(values);
     const result = await axios.post('http://localhost:3000/api/user');
     console.log(result);
   } catch (error) {
