@@ -26,6 +26,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     <>
       <Head>
         <title>Librery</title>
+        <meta name="author" content="Joaquín Nieva" />
         <meta name="description" content="Free library, free forum" />
         <link rel="icon" href="/favicon.png" />
       </Head>
