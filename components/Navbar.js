@@ -1,5 +1,5 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { MenuIcon, MoonIcon, SunIcon, TranslateIcon, XIcon } from '@heroicons/react/outline';
+import { ChevronDownIcon, MenuIcon, MoonIcon, SunIcon, TranslateIcon, XIcon } from '@heroicons/react/outline';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
@@ -14,7 +14,6 @@ export default function Example() {
   const [mounted, setMounted] = useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
   const [t, i18n] = useTranslation('global');
-  console.log(session, status);
   const renderTheneChanger = () => {
     if (!mounted) return null;
     const currentTheme = theme === 'system' ? systemTheme : theme;
@@ -81,7 +80,7 @@ export default function Example() {
                     <div>
                       <Menu.Button className="flex items-center gap-1 px-4 py-2 text-sm font-normal text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-100 hover:text-neutral-800">
                         {t('NAV_TRANSLATE')}
-                        <TranslateIcon className="w-5 h-5"></TranslateIcon>
+                        <ChevronDownIcon className="w-5 h-5" />
                       </Menu.Button>
                     </div>
                     <Transition
