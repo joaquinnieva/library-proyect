@@ -14,6 +14,8 @@ const nextConfig = {
       'lh6.googleusercontent.com',
       'as1.ftcdn.net',
       'image.shutterstock.com',
+      'image.freepik.com',
+      'avatars3.githubusercontent.com',
     ],
   },
 };
