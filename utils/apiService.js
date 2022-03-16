@@ -16,9 +16,9 @@ export async function postPosts() {
     return error;
   }
 }
-export async function getUser(id) {
+export async function getUser(name) {
   try {
-    const { data } = await axios.get('http://localhost:3000/api/user/' + id);
+    const { data } = await axios.get('http://localhost:3000/api/user/' + name);
     return data[0];
   } catch (error) {
     return error;

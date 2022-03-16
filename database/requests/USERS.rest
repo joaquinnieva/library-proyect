@@ -1,6 +1,6 @@
 GET http://localhost:3000/api/user
-### by id ↓
-GET http://localhost:3000/api/user/1
+### by name ↓
+GET http://localhost:3000/api/user/asd
 ###
 DELETE http://localhost:3000/api/user/1
 ###

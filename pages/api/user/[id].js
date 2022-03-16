@@ -11,7 +11,7 @@ export default async function (req, res) {
   switch (method) {
     case 'GET':
       try {
-        const user = await pool.query('SELECT * FROM user WHERE idUser = ?', [id]);
+        const user = await pool.query('SELECT * FROM user WHERE name = ?', [id]);
         if (!user) return res.status(484).json({ message: 'User not found' });
         return res.status(200).json(user[0]);
       } catch (error) {
