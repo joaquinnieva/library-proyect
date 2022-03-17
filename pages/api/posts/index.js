@@ -11,11 +11,11 @@ export default async function handler(req, res) {
       }
     case 'POST':
       try {
-        const { description, file, idUser } = req.body;
+        const { description, file, nameUser } = req.body;
         const savedPost = await pool.query('INSERT INTO post SET ?', {
           description,
           file,
-          idUser,
+          nameUser,
         });
         return res.status(201).json({
           message: 'Post saved',

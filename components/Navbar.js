@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon, MenuIcon, MoonIcon, SunIcon, TranslateIcon, XIcon } from '@heroicons/react/outline';
 import { signIn, signOut, useSession } from 'next-auth/react';
@@ -39,13 +40,12 @@ export default function Example() {
       );
     }
   };
-
   useEffect(() => {
     if (status === 'authenticated') {
       postUser(session.user);
     }
     setMounted(true);
-  }, []);
+  }, [status]);
   return (
     <Disclosure as="nav" className="transition ease-in-out bg-neutral-100 dark:bg-neutral-800">
       {({ open }) => (
@@ -164,7 +164,7 @@ export default function Example() {
                   <div>
                     <button
                       onClick={signIn}
-                      className="hidden px-6 py-2 font-normal text-white transition delay-75 border rounded sm:inline bg-neutral-800 focus:outline-none hover:bg-neutral-100 hover:text-neutral-800 hover:border-neutral-800 dark:bg-neutral-100 dark:text-neutral-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-100 dark:hover:border-neutral-100"
+                      className="px-6 py-2 font-normal text-white transition delay-75 border rounded bg-neutral-800 focus:outline-none hover:bg-neutral-100 hover:text-neutral-800 hover:border-neutral-800 dark:bg-neutral-100 dark:text-neutral-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-100 dark:hover:border-neutral-100"
                     >
                       {t('NAV_BUTTON_REGISTER')}
                     </button>

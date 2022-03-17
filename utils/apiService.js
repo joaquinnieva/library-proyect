@@ -8,9 +8,9 @@ export async function getPosts() {
     return error;
   }
 }
-export async function postPosts() {
+export async function postPosts(value) {
   try {
-    const result = await axios.get('http://localhost:3000/api/posts');
+    const result = await axios.post('http://localhost:3000/api/posts',value);
     return result;
   } catch (error) {
     return error;
@@ -26,9 +26,8 @@ export async function getUser(name) {
 }
 export async function postUser(values) {
   try {
-    // console.log(values);
-    const result = await axios.post('http://localhost:3000/api/user');
-    console.log(result);
+    const result = await axios.post('http://localhost:3000/api/user', values);
+    return result;
   } catch (error) {
     return error;
   }
