@@ -8,7 +8,7 @@ POST http://localhost:3000/api/user
 content-type: application/json
 
 {
-  "userMail":"testtt",
+  "email":"testttaaaa",
   "name":"testtt",
   "image": "https://lh3.googleusercontent.com/a-/AOh14Ghk5BgRm2DlTVj13vbSkvLbmnCFBCmRvkjqaUv8Mw=s96-c"
 }

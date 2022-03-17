@@ -8,9 +8,9 @@ POST http://localhost:3000/api/posts
 content-type: application/json
 
 {
-  "description":"testing w bastos",
-  "file":"https://drive.google.com/file/d/1j2prGlZnXDTsWDgkAwlJPkPU2QV0H145/view?usp=sharing",
-  "idUser": 1
+  "description":"testing w app",
+  "file":"https://drive.google.com/file/d/1RYcAoLbaUEvCeempnyOuFM6QeU2yCB5O/view?usp=sharing",
+  "nameUser": 1
 }
 ###
 PUT http://localhost:3000/api/posts/1
