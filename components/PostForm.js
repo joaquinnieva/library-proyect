@@ -1,9 +1,11 @@
 import { useSession } from 'next-auth/react';
 import Router from 'next/router';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { postPosts } from '../utils/apiService';
 
 function PostForm() {
+  const [t, i18n] = useTranslation('global');
   const { data: session } = useSession();
   const [form, setForm] = useState({
     description: '',
@@ -27,14 +29,14 @@ function PostForm() {
         name="description"
         className="bg-neutral-300 dark:bg-neutral-600 sec p-3 border border-neutral-300 rounded-lg dark:border-neutral-600 text-neutral-800 dark:text-neutral-200"
         autoComplete="off"
-        placeholder="Describe everything about this post here"
+        placeholder={t('FORM_POSTS_DESCRIPTION')}
         onChange={(e) => handleChange(e)}
       ></textarea>
       <input
         name="file"
         className="bg-neutral-300 border text-neutral-800 dark:bg-neutral-600 border-neutral-300 rounded-lg p-2 dark:text-neutral-200 dark:border-neutral-600"
         autoComplete="off"
-        placeholder="Link"
+        placeholder={t('FORM_POSTS_LINK')}
         type="text"
         onChange={(e) => handleChange(e)}
       />
