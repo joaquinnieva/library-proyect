@@ -140,14 +140,12 @@ export default function Example() {
                     >
                       <Menu.Items className="absolute right-0 z-10 flex flex-col w-48 py-1 mt-2 origin-top-right bg-white border rounded-md border-neutral-400 ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-800 dark:text-neutral-200 dark:border-neutral-600">
                         <Menu.Item>
-                          <a
-                            href="#"
-                            className="block px-4 py-2 text-sm text-left text-neutral-700 dark:text-neutral-200"
-                          >
-                            {t('NAV_BUTTON_PROFILE')}
-                          </a>
+                          <Link href={'/profile/' + session.user.name}>
+                            <a className="block px-4 py-2 text-sm text-left text-neutral-700 dark:text-neutral-200">
+                              {t('NAV_BUTTON_PROFILE')}
+                            </a>
+                          </Link>
                         </Menu.Item>
-
                         <Menu.Item>
                           <button
                             onClick={signOut}

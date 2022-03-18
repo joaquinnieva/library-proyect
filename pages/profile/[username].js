@@ -14,7 +14,6 @@ function Username({ data }) {
           <span className="font-semibold text-neutral-800 text-md whitespace-nowrap dark:text-neutral-200">
             {data.name}
           </span>
-          <p className="text-sm text-neutral-500">I cant start my day without a coffee cup</p>
         </div>
       </div>
     </div>

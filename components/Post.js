@@ -1,5 +1,6 @@
 import { LinkPreview } from '@dhaiwat10/react-link-preview';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { getUser } from '../utils/apiService';
 
@@ -16,21 +17,27 @@ function Post({ data }) {
     <div className="mx-4 my-10 transition ease-in-out border border-white rounded-lg max-w-auto dark:border-2 border-b-neutral-800 dark:border-b-neutral-600 dark:border-neutral-800 md:mx-auto md:max-w-2xl">
       <div className="flex px-4 py-6 w-100">
         <div className="object-cover w-12 h-12 mr-4 rounded-full shadow">
-          <Image
-            className="object-cover w-12 h-12 mr-4 rounded-full shadow"
-            src={
-              user?.image
-                ? user.image
-                : 'https://as1.ftcdn.net/v2/jpg/02/59/39/46/1000_F_259394679_GGA8JJAEkukYJL9XXFH2JoC3nMguBPNH.jpg'
-            }
-            alt="avatar"
-            width={48}
-            height={48}
-          />
+          <Link href={'/profile/' + user?.name}>
+            <a>
+              <Image
+                className="object-cover w-12 h-12 mr-4 rounded-full shadow"
+                src={
+                  user?.image
+                    ? user.image
+                    : 'https://as1.ftcdn.net/v2/jpg/02/59/39/46/1000_F_259394679_GGA8JJAEkukYJL9XXFH2JoC3nMguBPNH.jpg'
+                }
+                alt="avatar"
+                width={48}
+                height={48}
+              />
+            </a>
+          </Link>
         </div>
         <div className="flex flex-col w-full">
           <div className="flex items-center justify-between">
-            <h2 className="-mt-1 text-lg font-semibold text-gray-900 dark:text-neutral-100">{user?.name}</h2>
+            <Link href={'/profile/' + user?.name}>
+              <a className="-mt-1 text-lg font-semibold text-gray-900 dark:text-neutral-100">{user?.name}</a>
+            </Link>
             <small className="text-sm text-gray-700 dark:text-neutral-200">22h ago</small>
           </div>
           <p className="my-2 text-gray-700 text-md dark:text-neutral-400">{data.description}</p>
