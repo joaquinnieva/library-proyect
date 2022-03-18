@@ -13,14 +13,7 @@
   "INFO_SUBTITLE": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis nostra sagittis, etiam aliquet dis inceptos dapibus cras ridiculus sociosqu metus, facilisis penatibus diam bibendum non viverra nascetur feugiat vel. Felis justo lacus morbi lobortis fames auctor blandit.",
   "INFO_BUTTON_PRY": "View more",
   "INFO_BUTTON_SEC": "Register",
-  "LOGIN_TITLE": "Login",
-  "LOGIN_SUBTITLE": "Stay updated on your professional world",
-  "LOGIN_BUTON": "Login",
-  "LOGIN_QUESTION": "New to Librery?",
-  "LOGIN_LINK": "Join now",
-  "REGISTER_TITLE": "Register",
-  "REGISTER_SUBTITLE": "Stay updated on your professional world",
-  "REGISTER_BUTTON": "Register",
-  "REGISTER_QUESTION": "Have you account?",
-  "REGISTER_LINK": "Login"
+  "FORM_POSTS_DESCRIPTION": "Describe everything about this post here",
+  "FORM_POSTS_LINK": "Link",
+  "BANNER_MSG": "This application is under development."
 }

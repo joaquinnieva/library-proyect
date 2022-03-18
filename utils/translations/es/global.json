@@ -13,14 +13,7 @@
   "INFO_SUBTITLE": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis nostra sagittis, etiam aliquet dis inceptos dapibus cras ridiculus sociosqu metus, facilisis penatibus diam bibendum non viverra nascetur feugiat vel. Felis justo lacus morbi lobortis fames auctor blandit.",
   "INFO_BUTTON_PRY": "Ver más",
   "INFO_BUTTON_SEC": "Registrarse",
-  "LOGIN_TITLE": "Inicia sesión",
-  "LOGIN_SUBTITLE": "Stay updated on your professional world",
-  "LOGIN_BUTON": "Inicia sesión",
-  "LOGIN_QUESTION": "¿Nuevo en Librery?",
-  "LOGIN_LINK": "Entra ahora",
-  "REGISTER_TITLE": "Registrarse",
-  "REGISTER_SUBTITLE": "Stay updated on your professional world",
-  "REGISTER_BUTTON": "Registrarse",
-  "REGISTER_QUESTION": "¿Ya tiene una cuenta?",
-  "REGISTER_LINK": "Inicia sesión"
+  "FORM_POSTS_DESCRIPTION": "Describa todo sobre la publicación",
+  "FORM_POSTS_LINK": "Enlace",
+  "BANNER_MSG": "Esta aplicación está en desarrollo."
 }
