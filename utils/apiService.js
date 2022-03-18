@@ -1,8 +1,10 @@
 import axios from 'axios';
 
+const URL = 'https://librery-app.vercel.app';
+
 export async function getPosts() {
   try {
-    const result = await axios.get('http://localhost:3000/api/posts');
+    const result = await axios.get(URL + '/api/posts');
     return result;
   } catch (error) {
     return error;
@@ -10,7 +12,7 @@ export async function getPosts() {
 }
 export async function postPosts(value) {
   try {
-    const result = await axios.post('http://localhost:3000/api/posts',value);
+    const result = await axios.post(URL + '/api/posts', value);
     return result;
   } catch (error) {
     return error;
@@ -18,7 +20,7 @@ export async function postPosts(value) {
 }
 export async function getUser(name) {
   try {
-    const { data } = await axios.get('http://localhost:3000/api/user/' + name);
+    const { data } = await axios.get(URL + '/api/user/' + name);
     return data[0];
   } catch (error) {
     return error;
@@ -26,7 +28,7 @@ export async function getUser(name) {
 }
 export async function postUser(values) {
   try {
-    const result = await axios.post('http://localhost:3000/api/user', values);
+    const result = await axios.post(URL + '/api/user', values);
     return result;
   } catch (error) {
     return error;
