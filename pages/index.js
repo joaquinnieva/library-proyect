@@ -7,12 +7,13 @@ import { getPosts } from '../utils/apiService';
 
 function Home({ data }) {
   const { data: session, status } = useSession();
+  const Posts = data.reverse();
   return (
     <div className="grid">
       <HeaderBanner></HeaderBanner>
       <div>{status === 'authenticated' && <PostForm />}</div>
       <div className="grid-cols-3">
-        {data.map((post, index) => (
+        {Posts.map((post, index) => (
           <Post key={index} data={post} />
         ))}
       </div>
