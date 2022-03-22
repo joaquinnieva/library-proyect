@@ -8,12 +8,19 @@
   "NAV_SPANISH": "Español",
   "NAV_ENGLISH": "Ingles",
   "NAV_THEME": "Tema",
-  "INFO_TITLE1": "Lorem ipsum dolor",
-  "INFO_TITLE2": "sit amet consectetur",
-  "INFO_SUBTITLE": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis nostra sagittis, etiam aliquet dis inceptos dapibus cras ridiculus sociosqu metus, facilisis penatibus diam bibendum non viverra nascetur feugiat vel. Felis justo lacus morbi lobortis fames auctor blandit.",
+  "INFO_TITLE1": "Librery es tu",
+  "INFO_TITLE2": "biblioteca digital",
+  "INFO_SUBTITLE": "Librery esta pensada para ser un foro y biblioteca libre, con el fin de poder compartir PDFs de libros gratis para poder leer y nutrir la mente.",
   "INFO_BUTTON_PRY": "Ver más",
   "INFO_BUTTON_SEC": "Registrarse",
   "FORM_POSTS_DESCRIPTION": "Describa todo sobre la publicación",
   "FORM_POSTS_LINK": "Enlace",
-  "BANNER_MSG": "Esta aplicación está en desarrollo."
+  "BANNER_MSG": "Esta aplicación está en desarrollo por",
+  "INFO_LATEST": "Más reciente",
+  "INFO_TITLE_1": "Despliegue de Librery",
+  "INFO_AGO_1": "Lanzado el 18 de marzo de 2022",
+  "INFO_TEXT_1": "Aplicación desplegada en vercel para poder mostrar en portafolio. Esta aplicación está en versión BETA.",
+  "INFO_TITLE_2": "Librery dada de alta",
+  "INFO_AGO_2": "Lanzado el 22 de marzo de 2022",
+  "INFO_TEXT_2": "Aplicación en funcionamiento, puedes publicar si estás registrado."
 }

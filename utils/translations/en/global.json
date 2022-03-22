@@ -8,12 +8,19 @@
   "NAV_SPANISH": "Spanish",
   "NAV_ENGLISH": "English",
   "NAV_THEME": "Theme",
-  "INFO_TITLE1": "Lorem ipsum dolor",
-  "INFO_TITLE2": "sit amet consectetur",
-  "INFO_SUBTITLE": "Lorem ipsum dolor sit amet consectetur adipiscing elit sociis nostra sagittis, etiam aliquet dis inceptos dapibus cras ridiculus sociosqu metus, facilisis penatibus diam bibendum non viverra nascetur feugiat vel. Felis justo lacus morbi lobortis fames auctor blandit.",
+  "INFO_TITLE1": "Librery is your",
+  "INFO_TITLE2": "digital library",
+  "INFO_SUBTITLE": "Library is intended to be a free forum and free library, in order to share PDFs of free books to read and nourish the mind.",
   "INFO_BUTTON_PRY": "View more",
   "INFO_BUTTON_SEC": "Register",
   "FORM_POSTS_DESCRIPTION": "Describe everything about this post here",
   "FORM_POSTS_LINK": "Link",
-  "BANNER_MSG": "This application is under development."
+  "BANNER_MSG": "This application is under development by",
+  "INFO_LATEST": "Latest",
+  "INFO_TITLE_1": "Librery Deploy",
+  "INFO_AGO_1": "Released on March 18th, 2022",
+  "INFO_TEXT_1": "Application deployed in vercel to be able to show in portfolio. This app is in BETA version.",
+  "INFO_TITLE_2": "Librery started",
+  "INFO_AGO_2": "Released on March 22th, 2022",
+  "INFO_TEXT_2": "Application in operation, you can post if you are registered."
 }
