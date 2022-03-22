@@ -5,9 +5,9 @@ import Post from '../components/Post';
 import PostForm from '../components/PostForm';
 import { getPosts } from '../utils/apiService';
 
-function Home({ data }) {
+function Home({ Posts }) {
   const { data: session, status } = useSession();
-  const Posts = data.reverse();
+
   return (
     <div className="grid">
       <HeaderBanner></HeaderBanner>
@@ -22,8 +22,9 @@ function Home({ data }) {
 }
 export async function getServerSideProps(context) {
   const { data } = await getPosts();
+  const Posts = data.reverse();
   return {
-    props: { data },
+    props: { Posts },
   };
 }
 export default Home;
