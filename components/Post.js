@@ -38,7 +38,7 @@ function Post({ data }) {
             <Link href={'/profile/' + user?.name}>
               <a className="-mt-1 text-lg font-semibold text-gray-900 dark:text-neutral-100">{user?.name}</a>
             </Link>
-            <small className="text-sm text-gray-700 dark:text-neutral-200">22h ago</small>
+            <small className="text-sm text-gray-700 dark:text-neutral-200">{data.createdAt.split('T', 1)}</small>
           </div>
           <p className="my-2 text-gray-700 text-md dark:text-neutral-400">{data.description}</p>
           <LinkPreview
