@@ -1,3 +1,4 @@
+import { signIn } from 'next-auth/react';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import librery from '../../public/favicon.png';
@@ -18,7 +19,10 @@ function Info() {
             <button className="inline-flex px-6 py-2 text-lg font-normal text-white transition ease-in-out border rounded bg-neutral-800 focus:outline-none hover:bg-neutral-100 hover:text-neutral-800 hover:border-neutral-800 dark:bg-neutral-100 dark:text-neutral-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-100 dark:hover:border-neutral-100">
               {t('INFO_BUTTON_PRY')}
             </button>
-            <button className="inline-flex px-6 py-2 ml-4 text-lg font-normal transition ease-in-out border rounded text-neutral-600 focus:outline-none hover:border-neutral-800 hover:text-neutral-800 border-b-neutral-800 dark:text-neutral-200 dark:border-neutral-800 dark:border-b-neutral-100 dark:hover:border-neutral-100 dark:hover:text-neutral-100">
+            <button
+              onClick={signIn}
+              className="inline-flex px-6 py-2 ml-4 text-lg font-normal transition ease-in-out border rounded text-neutral-600 focus:outline-none hover:border-neutral-800 hover:text-neutral-800 border-b-neutral-800 dark:text-neutral-200 dark:border-neutral-800 dark:border-b-neutral-100 dark:hover:border-neutral-100 dark:hover:text-neutral-100"
+            >
               {t('INFO_BUTTON_SEC')}
             </button>
           </div>
