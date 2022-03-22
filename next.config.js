@@ -18,14 +18,6 @@ const nextConfig = {
       'avatars3.githubusercontent.com',
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'https://librery-app.vercel.app/:path*',
-      },
-    ];
-  },
 };
 
 module.exports = nextConfig;
