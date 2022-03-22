@@ -1,6 +1,7 @@
 import { signIn } from 'next-auth/react';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
+import InfoTimeline from '../../components/InfoTimeline';
 import librery from '../../public/favicon.png';
 
 function Info() {
@@ -30,6 +31,9 @@ function Info() {
         <div className="w-5/6 lg:max-w-lg lg:w-full md:w-1/2">
           <Image className="object-cover object-center rounded" width={400} height={400} alt="hero" src={librery} />
         </div>
+      </div>
+      <div className="p-6">
+        <InfoTimeline></InfoTimeline>
       </div>
     </section>
   );
