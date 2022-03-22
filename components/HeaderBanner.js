@@ -10,7 +10,7 @@ function HeaderBanner() {
           <span className="flex p-2 rounded-lg bg-neutral-700">
             <InformationCircleIcon className="h-6 w-6 text-white" />
           </span>
-          <p className="ml-3 font-medium text-neutral-500">{t('BANNER_MSG')}</p>
+          <p className="ml-3 font-medium text-neutral-500">{t('BANNER_MSG')} Joaquín Nieva </p>
         </div>
       </div>
     </div>
