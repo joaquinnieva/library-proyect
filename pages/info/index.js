@@ -1,14 +1,15 @@
 import { signIn } from 'next-auth/react';
-import Image from 'next/image';
+import { useTheme } from 'next-themes';
 import { useTranslation } from 'react-i18next';
+import { Librery } from '../../components/Icon';
 import InfoTimeline from '../../components/InfoTimeline';
-import librery from '../../public/favicon.png';
 
 function Info() {
+  const { theme } = useTheme();
   const [t] = useTranslation('global');
   return (
     <section className="text-neutral-600 body-font">
-      <div className="container flex flex-col items-center px-5 py-24 mx-auto md:flex-row">
+      <div className="container flex flex-col items-center px-6 pb-16 md:flex-row min-h-screen">
         <div className="flex flex-col items-center mb-16 text-center lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:items-start md:text-left md:mb-0">
           <h1 className="mb-4 text-3xl font-medium text-neutral-900 title-font sm:text-4xl dark:text-neutral-100">
             {t('INFO_TITLE1')}
@@ -29,7 +30,7 @@ function Info() {
           </div>
         </div>
         <div className="w-5/6 lg:max-w-lg lg:w-full md:w-1/2">
-          <Image className="object-cover object-center rounded" width={400} height={400} alt="hero" src={librery} />
+          <Librery color={theme === 'dark' ? '#f5f5f5' : '#262626'} />
         </div>
       </div>
       <div className="p-6">
